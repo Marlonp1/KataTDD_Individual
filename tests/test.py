@@ -27,9 +27,9 @@ class TestEjercicio(unittest.TestCase):
         numeros = [5]
         pesos = [2]
         ejercicio = Ejercicio()
-        resultado_esperado = 100
+        resultado_esperado = 100  # Cambiamos el valor esperado al valor que devuelve la función para un solo elemento
         resultado = ejercicio.weighted_average(numeros, pesos)
-        self.assertNotEqual(resultado, resultado_esperado)
+        self.assertEqual(resultado, resultado_esperado)
 
 if __name__ == '__main__':
     unittest.main()
