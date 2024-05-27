@@ -9,5 +9,12 @@ class TestEjercicio(unittest.TestCase):
         with self.assertRaises(ValueError):
             ejercicio.weighted_average(numeros, pesos)
 
+    def test_listas_vacias(self):
+        numeros = []
+        pesos = []
+        ejercicio = Ejercicio()
+        resultado = ejercicio.weighted_average(numeros, pesos)
+        self.assertEqual(resultado, 0)
+
 if __name__ == '__main__':
     unittest.main()
