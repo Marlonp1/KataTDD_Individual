@@ -16,13 +16,20 @@ class TestEjercicio(unittest.TestCase):
         resultado = ejercicio.weighted_average(numeros, pesos)
         self.assertEqual(resultado, 0)
 
-    class TestEjercicio(unittest.TestCase):
-        def test_elementos_negativos_en_pesos(self):
-            numeros = [1, 2, 3, 4, 5]
-            pesos = [1, -2, 3, 4, 5]
-            ejercicio = Ejercicio()
-            resultado = ejercicio.weighted_average(numeros, pesos)
-            self.assertNotAlmostEqual(resultado, 3.36, places=2)
+    def test_elementos_negativos_en_pesos(self):
+        numeros = [1, 2, 3, 4, 5]
+        pesos = [1, -2, 3, 4, 5]
+        ejercicio = Ejercicio()
+        resultado = ejercicio.weighted_average(numeros, pesos)
+        self.assertNotAlmostEqual(resultado, 3.36, places=2)
+
+    def test_caso_limite_un_solo_elemento(self):
+        numeros = [5]
+        pesos = [2]
+        ejercicio = Ejercicio()
+        resultado_esperado = 100
+        resultado = ejercicio.weighted_average(numeros, pesos)
+        self.assertNotEqual(resultado, resultado_esperado)
 
 if __name__ == '__main__':
     unittest.main()
